@@ -1,0 +1,15 @@
+h1 {
+ font-size: 20px;
+}
+
+.red-percent{
+    color: red;
+  }
+  
+.green-percent{
+    color: green;
+  }
+
+.row {
+  text-align: center;
+}
