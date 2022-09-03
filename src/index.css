@@ -12,4 +12,8 @@ code {
     monospace;
 }
 
-
+@media (max-width: 600px) {
+  .h1 {
+    color: blue;
+  }
+}

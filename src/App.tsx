@@ -7,7 +7,31 @@ import { ThemeProvider, createTheme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline'
 import Typography from '@mui/material/Typography'
 import DataGrid from '@mui/x-data-grid'
+import Header from './components/Header';
 
+    let ws = new WebSocket('wss://stream.binance.com:9443/ws/btceur@trade');
+    let cryptoPrice = document.getElementById('crypto-price');
+    let lastPrice: string | null = null;
+  
+    ws.onmessage = (event) => {
+    let cryptoObject = JSON.parse(event.data);
+    cryptoPrice!.innerText = parseFloat(cryptoObject.p).toFixed(2);
+    let price = parseFloat(cryptoObject.p).toFixed(2);
+    
+    cryptoPrice!.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+    }
+
+function useWindowSize() {
+  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+  useEffect(() => {
+    const handleUIResize = () => {
+      setSize([window.innerHeight, window.innerWidth])
+    }
+    window.addEventListener("resize", handleUIResize)
+  }, [])
+  return size;
+}
 
 
 const darkTheme = createTheme({
@@ -52,14 +76,18 @@ const App = () => {
   const filterCoins = coins.filter(coin =>
     coin.name.toLowerCase().includes(search.toLowerCase())
     )
- 
+
+ const[height, width] = useWindowSize();
+
 
   return (
     <div>
+      height: {height}, width: {width}
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
       <div className = "coin-search">
-        <Typography variant = "h2" align ="center"> Cryptocurrency price tracker </Typography>
+        <Header>This is our story header!</Header>
+        <Typography variant = "h2" align ="center"> Cryptocurrency price tracker</Typography>
         <Typography variant = "h4" align="center"> Search Crypto </Typography>
         <form>
           <TextField 
@@ -88,6 +116,7 @@ const App = () => {
       </ThemeProvider>
     </div>
   );
+
 }
 
 export default App
