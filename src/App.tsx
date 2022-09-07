@@ -3,7 +3,7 @@ import axios from 'axios';
 import Coin from "./Coin"
 import './App.css';
 import TextField from '@mui/material/TextField'
-import { ThemeProvider, createTheme} from '@mui/material/styles';
+import { ThemeProvider, createTheme, makeStyles} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline'
 import Typography from '@mui/material/Typography'
 import DataGrid from '@mui/x-data-grid'
@@ -11,6 +11,8 @@ import Header from './components/Header';
 import { TickerTape } from "react-ts-tradingview-widgets";
 import { Example } from './components/ticker';
 import styled from "styled-components";
+
+
 
   //websocket (BTC real time price)f
     let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
@@ -26,7 +28,6 @@ import styled from "styled-components";
     lastPrice = price;
     }
     //websocket end
-
 
 
 function useWindowSize() {
@@ -86,17 +87,17 @@ const App = () => {
 
  const[height, width] = useWindowSize();
 
-
   return (
     <div>
-      height: {height}, width: {width}
+      <div className = "device-size">
+        Your device size: Height: {height}, Width: {width}
+      </div>
+      <Example />
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
       <div className = "coin-search">
-        <Example />
-        <Header>This is our story header!</Header>
-        <Typography variant = "h2" align ="center"> Cryptocurrency price tracker</Typography>
-        <Typography variant = "h4" align="center"> Search Crypto </Typography>
+        <Header>Crypto Price Tracker</Header>
+        <div className = "search-title">Search Crypto</div>
         <form>
           <TextField 
           id="filled-basic" 
@@ -124,7 +125,6 @@ const App = () => {
       </ThemeProvider>
     </div>
   );
-
 }
 
 export default App

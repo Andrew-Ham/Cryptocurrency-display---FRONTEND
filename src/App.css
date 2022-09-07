@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -43,8 +44,26 @@
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .h1 {
-    color: blue;
+.device-size {
+  text-align: center;
+  align-items: center;
+}
+
+.search-title {
+  font-size: 35px;
+  text-align: center;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 450px) {
+  .header {
+      font-family: sans-serif;
+      font-size: 1.5em;
+      color: green;
+      border-bottom: solid 5px green;
+  }
+  .search-title {
+    font-size: 15px;
   }
 }

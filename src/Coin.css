@@ -12,10 +12,24 @@ h1 {
 
 .row {
   text-align: center;
+
 }
 
-@media (max-width: 600px) {
-  .h1 {
+img {
+  max-width: 80%;
+  height:auto;
+}
+
+
+@media screen and (max-width: 450px) {
+  #h1 {
     color: blue;
+  }
+  .row {
+    background-color: black;
+  }
+  img {
+    max-width: 40%;
+    height:auto;
   }
 }

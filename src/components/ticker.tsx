@@ -12,7 +12,7 @@ export const Example = () => {
     },
   };
   
-  return <TickerTape colorTheme="dark" copyrightStyles={styles} symbols = {
+  return <TickerTape colorTheme="dark" copyrightStyles={styles} isTransparent = {true} displayMode = {"adaptive"} symbols = {
   [
     {
       "proName": "BINANCE:LUNCBUSD",
@@ -33,6 +33,10 @@ export const Example = () => {
     {
       "proName": "BITSTAMP:ETHUSD",
       "title": "ETH/USD"
+    },
+    {
+      "proName": "BINANCE:DOGEUSDT",
+      "title": "DOGE/USD"
     }
   ]
 }   
