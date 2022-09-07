@@ -8,8 +8,12 @@ import CssBaseline from '@mui/material/CssBaseline'
 import Typography from '@mui/material/Typography'
 import DataGrid from '@mui/x-data-grid'
 import Header from './components/Header';
+import { TickerTape } from "react-ts-tradingview-widgets";
+import { Example } from './components/ticker';
+import styled from "styled-components";
 
-    let ws = new WebSocket('wss://stream.binance.com:9443/ws/btceur@trade');
+  //websocket (BTC real time price)f
+    let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
     let cryptoPrice = document.getElementById('crypto-price');
     let lastPrice: string | null = null;
   
@@ -21,6 +25,9 @@ import Header from './components/Header';
     cryptoPrice!.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
     lastPrice = price;
     }
+    //websocket end
+
+
 
 function useWindowSize() {
   const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
@@ -86,6 +93,7 @@ const App = () => {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
       <div className = "coin-search">
+        <Example />
         <Header>This is our story header!</Header>
         <Typography variant = "h2" align ="center"> Cryptocurrency price tracker</Typography>
         <Typography variant = "h4" align="center"> Search Crypto </Typography>
