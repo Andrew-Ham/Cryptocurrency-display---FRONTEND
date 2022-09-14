@@ -15,7 +15,7 @@ The API used was the coingecko API which can be found on their website (coingeck
 - Usage of websocket to show real time bitcoin price (price updates without refreshing page!)
 - Fluid animation (implemented using trading view widget!)
 - UI Scalability with window size (media query breakpoints!)
-- Intro to storbook (interacting with headers!)
+- Intro to storybook (interacting with headers!)
 
 ## Set up
 - Clone repo, npm start
