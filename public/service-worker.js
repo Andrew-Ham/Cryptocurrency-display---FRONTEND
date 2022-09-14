@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "static_cache"
+const CACHE_NAME = "static_cache5"
 
 const STATIC_ASSETS = [
   'my-app/public/index.css',

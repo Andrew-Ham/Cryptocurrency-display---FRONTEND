@@ -22,14 +22,27 @@ img {
 
 
 @media screen and (max-width: 450px) {
-  #h1 {
-    color: blue;
-  }
   .row {
     background-color: black;
   }
   img {
-    max-width: 40%;
+    max-width: 20%;
     height:auto;
+  }
+}
+
+@media (orientation: landscape) {
+  h1 {
+    font-size: 40px;
+  }
+  img {
+    max-width: 80%;
+    height: auto;
+  }
+}
+
+@media (orientation: portrait) {
+  img {
+    max-width: 10%;
   }
 }

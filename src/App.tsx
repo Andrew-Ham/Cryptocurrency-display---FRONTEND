@@ -14,7 +14,7 @@ import styled from "styled-components";
 
 
 
-  //websocket (BTC real time price)f
+  //websocket (BTC real time price)
     let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
     let cryptoPrice = document.getElementById('crypto-price');
     let lastPrice: string | null = null;
